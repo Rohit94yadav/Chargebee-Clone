@@ -1,0 +1,43 @@
+
+.main{
+    display: flex;
+    margin: auto;
+    justify-content: center;
+    
+    gap: 100px;
+    border: 1px solid red;
+}
+
+.main1{
+    display: flex;
+    flex-direction: column;
+    width: 250px;
+    text-align: left;
+    background-image: url("https://www.linkpicture.com/q/project-img.png");
+
+}
+
+.main2{
+    display: grid;
+    grid-template-columns: repeat(2,300px);
+    margin: auto;
+    align-items: center;
+    justify-content: flex-start;
+    gap: 30px;
+    
+
+}
+
+.main2>div>img{
+    width: 50px;
+}
+
+.main2>div{
+    box-shadow: rgba(0, 0, 0, 0.1) 0px 4px 6px -1px, rgba(0, 0, 0, 0.06) 0px 2px 4px -1px;
+    display: flex;
+    flex-direction: column;
+    margin: auto;
+    justify-content: flex-start;
+    text-align: left;
+    padding: 30px;
+}

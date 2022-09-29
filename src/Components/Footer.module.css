@@ -1,0 +1,57 @@
+.footer{
+    display: flex;
+    margin: auto;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    background-color: white;
+  
+    margin-top: 60px;
+}
+
+.footer1{
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    margin: auto;
+    
+    width: 12%;
+   margin-top: 0px;
+    text-align: left;
+   
+}
+
+ .avatar1>img{
+    width: 140px;
+    height: 90px;
+    background-color: #2E3339;
+}
+.footer1>div>p{
+    font-size: 15px;
+    font-weight: 450;
+    margin-top: -3px;
+    color: rgb(63, 58, 58);
+}
+.footer1>div>p:hover{
+    color: white;
+    cursor: pointer;
+}
+.footer1>div>h3{
+    color: rgb(77, 77, 224);
+
+}
+
+.avatar2>img{
+    height: 30px;
+    width: 30px;
+    border-radius: 50%;
+    display: flex;
+
+}
+.avatar2{
+   
+    display: flex;
+    margin-top: 20px;
+    margin-bottom: 50px;
+    
+}
