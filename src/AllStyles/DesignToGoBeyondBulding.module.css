@@ -2,19 +2,22 @@
 .main{
     display: flex;
     margin: auto;
-    justify-content: center;
-    
-    gap: 100px;
-    border: 1px solid red;
+    justify-items:center;
+   margin-top: 80px;
 }
 
 .main1{
     display: flex;
     flex-direction: column;
     width: 250px;
+    margin-left: 10%;
     text-align: left;
     background-image: url("https://www.linkpicture.com/q/project-img.png");
 
+}
+.main1>p{
+    color: rgb(88, 83, 83);
+    font-weight: 500;
 }
 
 .main2{
@@ -27,17 +30,42 @@
     
 
 }
+.main2>div>p{
+    color: rgb(88, 83, 83);
+    font-size: 14px;
+}
+.main2>div>h4{
+    color: rgb(51, 45, 45);
+   
+}
+
+.main2>div>button{
+    border: none;
+    background-color: white;
+    color: blue;
+    font-size: large;
+    margin-left: 30%;
+    margin-top: 20px;
+
+   
+}
+
+.main2>div:hover{
+    cursor: pointer;
+    margin-top: -7px;
+}
 
 .main2>div>img{
     width: 50px;
 }
 
 .main2>div{
-    box-shadow: rgba(0, 0, 0, 0.1) 0px 4px 6px -1px, rgba(0, 0, 0, 0.06) 0px 2px 4px -1px;
+    box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+    border-radius: 8px;
     display: flex;
     flex-direction: column;
     margin: auto;
     justify-content: flex-start;
     text-align: left;
-    padding: 30px;
+    padding: 35px;
 }
