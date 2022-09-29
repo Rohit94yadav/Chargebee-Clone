@@ -5,6 +5,7 @@ import styles from "../AllStyles/Home.module.css";
 import SimpleSlider from "../Components/Carousel";
 import SimpleSliderHome from "../Components/CarouselHome";
 import DesignToGoBeyondBulding from "../Components/DesignToGoBeyondBulding";
+import HomeLast from "../Components/HomeLast";
 export default function Home() {
   return (
     <div>
@@ -17,6 +18,8 @@ export default function Home() {
         <SimpleSliderHome/>
     
     <DesignToGoBeyondBulding/>
+
+    <HomeLast/>
 
 
 
