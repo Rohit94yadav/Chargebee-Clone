@@ -1,0 +1,149 @@
+body {
+    font-family: Arial, Helvetica, sans-serif;
+    margin: 0;
+    padding: 0;
+    width: 100%;
+  }
+  
+  .navbar {
+    overflow: hidden;
+    background-color:transparent;
+    display: flex;
+    margin: auto;
+    align-items: center;
+    
+    justify-content: flex-start;
+    width: 100%;
+   
+  }
+  
+  .navbar a {
+    float: left;
+    font-size: 12px;
+    
+    text-align: center;
+    padding: 5px;
+    text-decoration: none;
+  }
+  
+  .dropdown {
+    display: flex;
+   
+    justify-content: center;
+    
+    overflow: hidden;
+  }
+  
+  .dropdown .dropbtn {
+    font-size: 16px;  
+    border: none;
+    outline: none;
+    color:rgb(54, 50, 50);
+    font-weight: 600;
+    padding: 14px 16px;
+    background-color: inherit;
+    font-family: inherit;
+    margin: 0;
+  }
+  
+  
+  .dropbtn:hover{
+    background-color: whitesmoke;
+   
+    font-weight: 900;
+    
+  }
+  
+  .dropdowncontent {
+    display: none;
+    position: absolute;
+    background-color: #f7f3fb;
+   
+    margin-left: 100px;
+    /* margin-left: 590px; */
+    margin-top: 50px;
+    text-align: left;
+   
+    z-index: 1;
+    
+  }
+  .dropdowncontent0 {
+    display:flex;
+    flex-direction: column;
+    text-align: left;
+    margin: auto;
+    
+   
+    width: 100%;
+
+   
+    
+  }
+  .dropdowncontent1 {
+    display:flex;
+    flex-direction: row;
+    text-align: left;
+    margin-bottom: 100px;
+    justify-content: space-evenly;
+   gap: 100px;
+   
+    
+  }
+
+  .dropdowncontent2 {
+    display:flex;
+    flex-direction: column;
+    
+    justify-content: flex-start;
+   
+    gap: 100px;
+    
+    text-align: left;
+    
+    
+  }
+  .dropdowncontent2>div>button{
+    color: rgb(67, 67, 218);
+    border: none;
+    font-size: larger;
+  }
+  
+  .dropdowncontent a  {
+    float: none;
+    font-size: 14px;
+    color:rgb(94, 94, 231);
+    text-decoration: none;
+    display: block;
+    text-align: left;
+  }
+  
+ 
+  
+  .dropdown:hover .dropdowncontent {
+    display: flex;
+    padding: 19px;
+    gap: 50px;
+    
+  }
+  .dropdowncontent a:hover{
+    cursor: pointer;
+    text-decoration: none;
+    color: rgb(94, 94, 231);
+  }
+
+  .navlogo{
+   
+    margin-right: 30px;
+    width: 130px;
+    height: 80px;
+  }
+  .dropdown>img{
+    width: 45px;
+    height: 45px;
+    margin-left: 17%;
+    margin-right: 200px;
+  }
+
+  .dropdowncontent h3{
+    color: rgb(102, 93, 93);
+  }
