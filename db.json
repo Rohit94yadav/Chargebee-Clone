@@ -914,6 +914,11 @@
       "user": "Rohit94y",
       "pwd": "Rohit@123",
       "id": 5
+    },
+    {
+      "user": "Sohit123",
+      "pwd": "sss",
+      "id": 6
     }
   ],
   "register": [
@@ -946,6 +951,11 @@
       "user": "Rohit94y",
       "pwd": "Rohit@123",
       "id": 6
+    },
+    {
+      "user": "sohit123",
+      "pwd": "Sohit@123",
+      "id": 7
     }
   ]
 }

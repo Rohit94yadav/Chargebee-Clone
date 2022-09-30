@@ -1,4 +1,5 @@
 import React, { Component } from "react";
+import { Link } from "react-router-dom";
 import Slider from "react-slick";
 import styles from "../AllStyles/Caraousel.module.css"
 
@@ -133,8 +134,12 @@ export default function SimpleSlider() {
                         
                         
                         <div style={{display:"flex"}}>
+                            <Link to={"/learnmore"}>
                             <button style={{backgroundColor:"#5400af",padding:"15px",width:"170px",color:"white",fontWeight:"bolder",border:"none",borderRadius:"25px"}} >Get a Demo →</button>
+                            </Link>
+                            <Link to={"/signup"}>
                             <button style={{backgroundColor:"white",padding:"15px",width:"170px",fontWeight:"bold",marginLeft:"30px",border:"0.5px solid black",borderRadius:"25px"}}>Sign up for Free →</button>
+                            </Link>
                         </div>
 
                     </div>
