@@ -6,8 +6,8 @@ export default function SmoothSlider() {
   return (
     <div>
       <div className={styles.fifth}>
-        <div className={styles.fifth - 1}>
-          <ul>
+        <div >
+          <ul className={styles.fifth1}>
             <h3>
               <a href="">How It Works</a>
             </h3>
@@ -23,8 +23,14 @@ export default function SmoothSlider() {
 
 
       <div className={styles.fifth11}>
-        <img src="https://i.postimg.cc/dQknqZps/firstimg.png" alt="" />
+        <img src="https://i.postimg.cc/v8SyDphj/home-image-1.png" alt="" />
       </div>
+
+      <div className={styles.fifth11}>
+        <img src="https://i.postimg.cc/MTMCBGdF/home-image-2.png" alt="" />
+      </div>
+
+     
       
     </div>
   );

@@ -16,6 +16,13 @@ body {
     width: 100%;
    
   }
+
+  .main{
+    display: flex;
+    margin: auto;
+    justify-content: center;
+    align-items: center;
+  }
   
   .navbar a {
     float: left;

@@ -4,7 +4,7 @@ import styles from "./Navbar.module.css";
 
 export default function Navbar() {
     return (
-        <div>
+        <div className={styles.main}>
             <div className={styles.navbar}>
                 <div className={styles.dropdown}>
                     <div>
@@ -280,9 +280,9 @@ export default function Navbar() {
 
                 <div>
                     <Link to={"/Login"}>
-                    <button style={{display : "flex", justifyContent :"center", alignItems: "center", gap:"5px",border:"none",backgroundColor:"white",fontSize:"16px",fontWeight:"bold"}} className={styles.dropbtn}> <img style={{width:"20px"}} src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSC1f3BsAbEkXuojvWiXQQ17_AriZXEGirgjGsxmRdLGA&s" alt="" /> Login {">"}</button>
+                    <button style={{display : "flex", justifyContent :"center", alignItems: "center", gap:"5px",border:"none",backgroundColor:"white",fontSize:"16px",fontWeight:"bold",width:"100px"}} className={styles.dropbtn}> <img style={{width:"20px"}} src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSC1f3BsAbEkXuojvWiXQQ17_AriZXEGirgjGsxmRdLGA&s" alt="" /> Login {">"}</button>
                     </Link>
-                    <div style={{width:"100px",marginLeft:"300px",height:"50px",backgroundColor:"white",borderRadius:"13px"}}  className={styles.dropdowncontent}>
+                    <div style={{width:"100px",marginLeft:"250px",height:"50px",backgroundColor:"white",borderRadius:"13px"}}  className={styles.dropdowncontent}>
                         
                     </div>
 
@@ -291,8 +291,10 @@ export default function Navbar() {
                 </div>
 
                 <div >
-                    
-                    <button style={{display : "flex", justifyContent :"center", alignItems: "center", gap:"5px",border:"none",fontWeight:"bold",backgroundColor:"darkorange",color:"white",fontSize:"16px",padding:"9px",marginLeft:"20px",marginRight:"20px"}} className={styles.dropbtn}> Get a Demo {">"}</button>
+                    <Link to={"/GetADemo"}>
+
+                    <button style={{display : "flex",width:"120px", justifyContent :"center", alignItems: "center", gap:"5px",border:"none",fontWeight:"bold",backgroundColor:"darkorange",color:"white",fontSize:"15px",padding:"9px",marginLeft:"20px",marginRight:"20px", borderRadius:"3px"}} className={styles.dropbtn}> Get a Demo {">"}</button>
+                    </Link>
                     <div style={{width:"100px",marginLeft:"300px",height:"50px",backgroundColor:"white",borderRadius:"13px"}}  className={styles.dropdowncontent}>
                         
                     </div>

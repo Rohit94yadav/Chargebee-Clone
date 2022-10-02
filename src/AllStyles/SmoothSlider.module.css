@@ -1,21 +1,25 @@
 .fifth {
     display: flex;
-    flex-direction: column;
+   
     width: 100%;
     background-color: white;
     margin: auto;
+    justify-content: center;
     margin-top: 50px;
     align-items: center;
 
     overflow: hidden;
 }
 
-.fifth-1 {
+.fifth1 {
 
     display: flex;
-    flex-direction: column;
-    overflow: hidden;
-    width: 81%;
+  
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    gap: 80px;
+    
     background-color: white;
 
 }

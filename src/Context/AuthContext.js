@@ -1,15 +1,23 @@
-import { createContext, useState } from "react";
+import React, { useState } from "react";
 
-const AuthContext = createContext({});
+//  CREATE
+// PROVIDE
+// CONSUME
 
-export const AuthProvider = ({ children }) => {
-    const [auth, setAuth] = useState({});
+export const AuthContext = React.createContext();
 
-    return (
-        <AuthContext.Provider value={{ auth, setAuth }}>
-            {children}
-        </AuthContext.Provider>
-    )
+function AuthContextProvider({ children }) {
+  const [isAuth, setIsAuth] = useState(false);
+
+  const toggleAuth = () => {
+    setIsAuth(!isAuth);
+  };
+
+  return (
+    <AuthContext.Provider value={{ isAuth, toggleAuth }}>
+      {children}
+    </AuthContext.Provider>
+  );
 }
 
-export default AuthContext;
+export default AuthContextProvider;
