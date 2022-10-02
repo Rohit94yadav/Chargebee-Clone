@@ -8,85 +8,25 @@ a {
     text-decoration: none;
     color: blue;
 }
-.box_anchor {
-    font-weight: bold;
-    font-size: 20px;
-}
-.box_anchor:hover {
-    opacity: 0.7;
-}
-.box_small_head {
-    font-size: 18px;
-    color: darkgray;
-    margin-bottom: 5px;
-    margin-top: 0;
-}
-.box_main_head {
-    font-weight: bold;
-    font-size: 32px;
-    margin-top: 0;
-    margin-bottom: 10px;
-}
-.box_writeup {
-    font-size: 18px;
-    margin-top: 0;
-}
+
 .layout {
     display: grid;
     grid-gap: 0%;
-}
-.nav_bar {
-    background-color: #e2e9fb;
-    border: 0px;
-    background-image: url('https://www.chargebee.com/static/resources/brand/chargebee-logo-black.svg');
-    background-repeat: no-repeat;
-    background-size: 100px;
-    height: 80px;
-    background-position: 2% 20%;
+    background-color: transparent;
+    z-index: 100;
+   
+    
+   
+    
     
 }
-.nav_bar a {
-    color: black;
-}
-.nav_bar > div {
-    float: left;
-    margin: 1%;
-    font-size: 15px;
-    font-weight: 700;
-}
-.nav_bar > div:nth-child(1) {
-    margin-right: 100px;
-    border: 1px solid black;
-    height: 20px;
-    width: 120px;
-    opacity: 0;
-}
-.nav_bar > button {
-    background-color: coral;
-    color: white;
-    float: right;
-    margin: 1%;
-    border: coral;
-    border-radius: 1px;
-    height: 40px;
-    width: 175px;
-    font-size: 15px;
-    font-weight: bold;
-} 
-.nav_bar span:hover {
-    margin-left: 10px;
-}
-.nav_bar > :nth-child(7) {
-    margin-left: 350px;
-}
-.nav_bar > img {
-    height: 20px;
-    width: 100px;
-}
+
 .intro_content {
-     background-image: url('./files/blue-background.jpg'); 
-    border: 0px;
     height: 500px;
+    border: 0px;
+    
+    /* background-image: url('./files/blue-background.jpg'); */
+    /* background-repeat: no-repeat;  */
 }
 .split_intro {
     height : 400px;

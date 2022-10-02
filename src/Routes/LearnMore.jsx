@@ -5,7 +5,9 @@ export default function LearnMore() {
     return (
         <div>
 
-
+            <div>
+                <img src="./files/blue-background.jpg" alt="" />
+            </div>
 
             <div>
                 <div className={styles.layout}>

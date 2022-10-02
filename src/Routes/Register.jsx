@@ -1,183 +1,120 @@
-import { useRef, useState, useEffect } from "react";
-import { faCheck, faTimes, faInfoCircle } from "@fortawesome/free-solid-svg-icons";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import axios from '../api/axios';
+import React from "react";
+import { Link } from "react-router-dom";
+import styles from "../AllStyles/Register.module.css";
+import RegisterCarousel from "../Components/RegisterCarousel";
 
-const USER_REGEX = /^[A-z][A-z0-9-_]{3,23}$/;
-const PWD_REGEX = /^(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*[!@#$%]).{8,24}$/;
-const REGISTER_URL = '/register';
+export default function () {
+  return (
+    <div className={styles.top}>
+      <div className={styles.top1}>
+        <div className={styles.top11}>
+          <RegisterCarousel />
+        </div>
 
-const Register = () => {
-    const userRef = useRef();
-    const errRef = useRef();
+        <div className={styles.top21}>
+          <div className={styles.top211}>
+            <Link to={"/"}>
+              <img
+                style={{ width: "100px" }}
+                src="https://www.chargebee.com/static/resources/brand/chargebee-logo-black.svg"
+                alt=""
+              />
+            </Link>
+            <Link to={"/Login"}>
+              <button style={{ border: "none", backgroundColor: "white" }}>
+                Login →
+              </button>
+            </Link>
+          </div>
 
-    const [user, setUser] = useState('');
-    const [validName, setValidName] = useState(false);
-    const [userFocus, setUserFocus] = useState(false);
+          <h1 className={styles.topheading}>Create Your Sandbox Account</h1>
 
-    const [pwd, setPwd] = useState('');
-    const [validPwd, setValidPwd] = useState(false);
-    const [pwdFocus, setPwdFocus] = useState(false);
+          <div className={styles.top212}>
+            <label
+              style={{ color: "rgb(100, 98, 98)", fontWeight: "520" }}
+              htmlFor=""
+            >
+              work email
+            </label>
+            <input type="text" placeholder="(eg) john.m@company.com" />
+            <label
+              style={{ color: "rgb(100, 98, 98)", fontWeight: "520", marginTop:"25px" }}
+              htmlFor=""
+            >
+              phone number
+            </label>
+            <div className={styles.top221}>
+              <button>
+                <img
+                  src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAARMAAAC3CAMAAAAGjUrGAAAAkFBMVEX/mTMSiAf/////kAsAfQAAAIgAAIUAAH0AAIL29vro6PIAAIDj4+8AAHMAAHby8veoqMu9vdiGhrlTU6HJyd/T0+WMjLwAAHRFRZudnca4uNWsrM6ystKUlMFMTJ5ubq0qKpEiIo9YWKRmZqnZ2egpKZF9fbU6OpfFxd0yMpSbm8USEow/P5mJibseHo47O5fLhzNOAAAEYElEQVR4nO3bWXfqNhSGYapWg+VBxlPMHGMIhoTT///vumUytNlc9NxYrJXvWYuZC/HGlo1xZjMAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAgN/0J3w3E/AdmnBowqEJhyYcmnCP0MTOm7597p7bfjO3oQcjHqCJ3XTaGKWklEoZo7tN8CyBm9SlNj6GVHEcK39HGl3WYQcVtIkttY9g+hddusSV+qU3PpEugy4rIZssqIgy8UVEYnDiINxA9y6xoWf1IuC4AjbZx/TZi9XJiXFdGfxVLdxpVVCreB9uYMGaRB0tDq2N/P2lv1p93ovsll7rolBDC9UkounU0BpS+QdDQlcNXZJxYalorTI034aKEqoJLSV6XTgh1vQg2tDVji4bn4GeccWaVqwu0NgCNSlpxhiXCZH7TUxJl/b91ubj8wNFKcMMLkyTRSzN+jarij1degrzSjn698d+xl0bGYfZ+gRpYjVtcWj+8KuMyGlyzenDa0pFi8hqXEwuNL/Q1kcH2U8J0mSr1PZCc4nwy4WgufTwLEQqxPOB5l7x/ry7+LeFGF6IJpX+WACis59l6YOnLkojR1m2NMNGp9sWhxYnXQUYX4gmrVJNdPuwTlEcMxfn3D25/CzmhlIoN75WRY1SbYDxBWiSaGlo32w17qQl2UEstSjebGbfCqGX4pD5vZXx5aWROpl+gAGaXGmD4v/8tvT7JnU6CLWrMmqSVTslhtTv6a/Hb4EtbZ6u0w8wQBPagV3c1o5c0vIyT1d1anWSJdqm9Sqd0/Ihb/sobmGkmX6A0zehVUd93Hetmos8rV6Kpuqqa/FSpbmYq9Z9vEGFWHmmb7I2ahfVy+q2bVnq13p4ssckv+bJ0T4N9asevwiKqFrW0U6Z9eQjnL5JoVRBN8mm7PMD3enTwnb22r61V7otUr9vcsh35ebw9eZpTd9kr2R22xDbS5eei8oWR7v1B5LM1h4LWxXn9Nfltv9SZVLtJx/h9E3OSpWfRwFc/pbpJqFNkWeuSaOzv/PP6SQqlTpPPsLpm0ip/3VgxDmbVHmrxiaqzavEOvf1eqSlnHyE0zdRMrbJsNrstlJn6VOWZb+uJ3lzao70OEuzTG77Jh8ONv7aSE0GywmH+YR7xO3O6cdtd/7v/knzg/ZPsB/L4fvOHb/3vfh1+gHi+AmH42wcjsdyOG7PPcjvO8fx953jz/19B78D3oPfi+/AeQV34PwTDucp3XE7ny3B+Wz/gfMe78hxfiyH86jvwfn29+D/Mu5y803fHrsj/n/ncaEJhyYcmnBowqEJN/sLvpv9Ad+hCYcmHJpwaMKhCYcmHJpwaMKhCYcmHJpwaMKhCYcmHJpwaMKhCYcmHJpwaMKhCYcmHJpwaMKhCYcmHJpwaMKhCYcmHJpwaMKhCYcmHJpwaMKhCYcmHJpwaMKhCYcmHJpwaMKhCYcmHJpwaMKhCYcmHJpwaMKhCYcmHJpwaMKhCYcmHJpw/wA1JRlXh9jshwAAAABJRU5ErkJggg=="
+                  alt=""
+                />{" "}
+                +91
+              </button>
+              <input type="text" placeholder="8134567896" />
+            </div>
 
-    const [matchPwd, setMatchPwd] = useState('');
-    const [validMatch, setValidMatch] = useState(false);
-    const [matchFocus, setMatchFocus] = useState(false);
+            <button
+              style={{
+                width: "160px",
+                height: "36px",
+                backgroundColor: "rgb(111, 111, 126)",
+                color: "white",
+                fontSize: "medium",
+                fontWeight: "550",
+                padding: "10px",
+                border: "none",
+              }}
+            >
+              Complete Signup →
+            </button>
 
-    const [errMsg, setErrMsg] = useState('');
-    const [success, setSuccess] = useState(false);
+            <p>
+              By clicking on Complete Signup, you agree to our Terms and you
+              acknowledge having read our Privacy Notice
+            </p>
+            <p>
+              *This includes periodic newsletters, emails about usage tips,
+              billing practices, and other communications. You can opt out
+              anytime within the app.
+            </p>
+            <p>Your data hosting is US region</p>
+          </div>
 
-    useEffect(() => {
-        userRef.current.focus();
-    }, [])
-
-    useEffect(() => {
-        setValidName(USER_REGEX.test(user));
-    }, [user])
-
-    useEffect(() => {
-        setValidPwd(PWD_REGEX.test(pwd));
-        setValidMatch(pwd === matchPwd);
-    }, [pwd, matchPwd])
-
-    useEffect(() => {
-        setErrMsg('');
-    }, [user, pwd, matchPwd])
-
-    const handleSubmit = async (e) => {
-        e.preventDefault();
-        // if button enabled with JS hack
-        const v1 = USER_REGEX.test(user);
-        const v2 = PWD_REGEX.test(pwd);
-        if (!v1 || !v2) {
-            setErrMsg("Invalid Entry");
-            return;
-        }
-        try {
-            const response = await axios.post(REGISTER_URL,
-                JSON.stringify({ user, pwd }),
-                {
-                    headers: { 'Content-Type': 'application/json' },
-                    withCredentials: true
-                }
-            );
-            // TODO: remove console.logs before deployment
-            console.log(JSON.stringify(response?.data));
-            //console.log(JSON.stringify(response))
-            setSuccess(true);
-            //clear state and controlled inputs
-            setUser('');
-            setPwd('');
-            setMatchPwd('');
-        } catch (err) {
-            if (!err?.response) {
-                setErrMsg('No Server Response');
-            } else if (err.response?.status === 409) {
-                setErrMsg('Username Taken');
-            } else {
-                setErrMsg('Registration Failed')
-            }
-            errRef.current.focus();
-        }
-    }
-
-    return (
-        <>
-            {success ? (
-                <section>
-                    <h1>Success!</h1>
-                    <p>
-                        <a href="#">Sign In</a>
-                    </p>
-                </section>
-            ) : (
-                <section>
-                    <p ref={errRef} className={errMsg ? "errmsg" : "offscreen"} aria-live="assertive">{errMsg}</p>
-                    <h1>Register</h1>
-                    <form onSubmit={handleSubmit}>
-                        <label htmlFor="username">
-                            Username:
-                            <FontAwesomeIcon icon={faCheck} className={validName ? "valid" : "hide"} />
-                            <FontAwesomeIcon icon={faTimes} className={validName || !user ? "hide" : "invalid"} />
-                        </label>
-                        <input
-                            type="text"
-                            id="username"
-                            ref={userRef}
-                            autoComplete="off"
-                            onChange={(e) => setUser(e.target.value)}
-                            value={user}
-                            required
-                            aria-invalid={validName ? "false" : "true"}
-                            aria-describedby="uidnote"
-                            onFocus={() => setUserFocus(true)}
-                            onBlur={() => setUserFocus(false)}
-                        />
-                        <p id="uidnote" className={userFocus && user && !validName ? "instructions" : "offscreen"}>
-                            <FontAwesomeIcon icon={faInfoCircle} />
-                            4 to 24 characters.<br />
-                            Must begin with a letter.<br />
-                            Letters, numbers, underscores, hyphens allowed.
-                        </p>
-
-
-                        <label htmlFor="password">
-                            Password:
-                            <FontAwesomeIcon icon={faCheck} className={validPwd ? "valid" : "hide"} />
-                            <FontAwesomeIcon icon={faTimes} className={validPwd || !pwd ? "hide" : "invalid"} />
-                        </label>
-                        <input
-                            type="password"
-                            id="password"
-                            onChange={(e) => setPwd(e.target.value)}
-                            value={pwd}
-                            required
-                            aria-invalid={validPwd ? "false" : "true"}
-                            aria-describedby="pwdnote"
-                            onFocus={() => setPwdFocus(true)}
-                            onBlur={() => setPwdFocus(false)}
-                        />
-                        <p id="pwdnote" className={pwdFocus && !validPwd ? "instructions" : "offscreen"}>
-                            <FontAwesomeIcon icon={faInfoCircle} />
-                            8 to 24 characters.<br />
-                            Must include uppercase and lowercase letters, a number and a special character.<br />
-                            Allowed special characters: <span aria-label="exclamation mark">!</span> <span aria-label="at symbol">@</span> <span aria-label="hashtag">#</span> <span aria-label="dollar sign">$</span> <span aria-label="percent">%</span>
-                        </p>
-
-
-                        <label htmlFor="confirm_pwd">
-                            Confirm Password:
-                            <FontAwesomeIcon icon={faCheck} className={validMatch && matchPwd ? "valid" : "hide"} />
-                            <FontAwesomeIcon icon={faTimes} className={validMatch || !matchPwd ? "hide" : "invalid"} />
-                        </label>
-                        <input
-                            type="password"
-                            id="confirm_pwd"
-                            onChange={(e) => setMatchPwd(e.target.value)}
-                            value={matchPwd}
-                            required
-                            aria-invalid={validMatch ? "false" : "true"}
-                            aria-describedby="confirmnote"
-                            onFocus={() => setMatchFocus(true)}
-                            onBlur={() => setMatchFocus(false)}
-                        />
-                        <p id="confirmnote" className={matchFocus && !validMatch ? "instructions" : "offscreen"}>
-                            <FontAwesomeIcon icon={faInfoCircle} />
-                            Must match the first password input field.
-                        </p>
-
-                        <button disabled={!validName || !validPwd || !validMatch ? true : false}>Sign Up</button>
-                    </form>
-                    <p>
-                        Already registered?<br />
-                        <span className="line">
-                            {/*put router link here*/}
-                            <a href="#">Sign In</a>
-                        </span>
-                    </p>
-                </section>
-            )}
-        </>
-    )
+          <div style={{ display: "flex", justifyContent: "center",marginTop:"40px" }}>
+            <img
+              style={{ width: "110px" }}
+              src="https://webstatic.chargebee.com/assets/web/529/images/schedule-a-demo/logos/okta.svg"
+              alt=""
+            />
+            <img
+              style={{ width: "110px" }}
+              src="https://webstatic.chargebee.com/assets/web/529/images/schedule-a-demo/logos/calendly.svg"
+              alt=""
+            />
+            <img
+              style={{ width: "110px" }}
+              src="https://webstatic.chargebee.com/assets/web/529/images/schedule-a-demo/logos/freshworks.svg"
+              alt=""
+            />
+            <img
+              style={{ width: "110px" }}
+              src="https://webstatic.chargebee.com/assets/web/529/images/schedule-a-demo/logos/study-com.svg"
+              alt=""
+            />
+            <img
+              style={{ width: "110px" }}
+              src="https://webstatic.chargebee.com/assets/web/529/images/schedule-a-demo/logos/doodle.svg"
+              alt=""
+            />
+            <img
+              style={{ width: "110px" }}
+              src="https://webstatic.chargebee.com/assets/web/529/images/schedule-a-demo/logos/envoy.svg"
+              alt=""
+            />
+          </div>
+        </div>
+      </div>
+    </div>
+  );
 }
-
-export default Register

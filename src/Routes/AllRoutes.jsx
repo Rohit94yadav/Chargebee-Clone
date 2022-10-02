@@ -1,12 +1,14 @@
 
 import React from 'react'
 import { Route, Routes } from 'react-router-dom'
-import LearnMore from '../Components/LearnMore'
+import LearnMore from './LearnMore'
 import Home from './Home'
 import JobPage from './JobPage'
 import JobView from './JobView'
 import Login from './Login'
 import Register from './Register'
+import GetADemo from './GetADemo'
+import PrivateRoute from "../Components/PrivateRoute";
 
 
 export default function AllRoutes() {
@@ -17,9 +19,9 @@ export default function AllRoutes() {
       <Route path='/' element={<Home/>} exact/>
       <Route path='/alljobs' element={<JobPage/>} exact/>
       <Route path='/jobview/:id' element={<JobView/>} exact/>
-      <Route path='/login' element={<Login/>} exact/>
-      <Route path='/signup' element={<Register/>} exact/>
-      <Route path='/learnmore' element={<LearnMore/>} exact/>
+      
+      <Route path='/LearnMore' element={<LearnMore/>} />
+      <Route path='/GetADemo' element={<PrivateRoute><GetADemo/></PrivateRoute>} />
     </Routes>
   )
 }
